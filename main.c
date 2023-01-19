@@ -58,25 +58,25 @@ void jobSequencing(int max_deadline, int *jobs, int *deadline, int *profit){
             }
         }
     }
-
+    
     printf("\n\n");
     for(i=0 ; i<max_deadline ; i++){
         printf("Job %d\n", granttChart[i]);
     }
-    printf("\n Total profit : %d\n", totalProfit);
+    printf("\nTotal profit : %d\n", totalProfit);
 }
 
 int main(int *argc, char **argv){
     int size;
-    printf("Enter the number of jobs: ");
+    printf("\nEnter the number of jobs: ");
     scanf("%d",&size);
     
-    // store the index of the each job 
     int jobs[size];
     int deadline[size];
     int profit[size];
 
     int max_deadline = 0;
+
     int i;
     for(i=0 ; i<size ; i++){
         printf("\nJob number %d:\n", i+1);
@@ -88,13 +88,9 @@ int main(int *argc, char **argv){
         printf("Enter profit: ");
         scanf("%d",&profit[i]);
     }
+
     quickSort(jobs, deadline, profit, 0, size-1);
     jobSequencing(max_deadline, jobs, deadline, profit);
 
-    /*for(i=0 ; i<size ; i++){
-        printf("\nJob number %d:\n", jobs[i]);
-        printf("Deadline: %d\n", deadline[i]);
-        printf("Profit: %d\n", profit[i]);
-    }*/
-
+    return 0;
 }
